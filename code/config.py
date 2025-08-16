@@ -10,3 +10,10 @@ N_GPU_LAYERS = 32  # Set to the number of GPU layers to use
 K_RETRIEVE = 3  # Number of documents to retrieve for context
 CPU_CORES = 4  # Number of CPU cores to use
 REPEAT_PENALTY = 1.2  # Penalty for repeated tokens
+
+MODELS = {
+    "model1": {"path": MODEL1_MODEL_PATH, "port": 5051},
+    "model2": {"path": MODEL2_MODEL_PATH, "port": 5052},
+    "model3": {"path": MODEL3_MODEL_PATH, "port": 5053},
+    "model4": {"path": MODEL4_MODEL_PATH, "port": 5054},
+}

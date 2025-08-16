@@ -8,15 +8,6 @@ from config import *
 import asyncio
 import uvicorn
 
-app = FastAPI()
-
-MODELS = {
-    "model1": {"path": MODEL1_MODEL_PATH, "port": 5051},
-    "model2": {"path": MODEL2_MODEL_PATH, "port": 5052},
-    "model3": {"path": MODEL3_MODEL_PATH, "port": 5053},
-    "model4": {"path": MODEL4_MODEL_PATH, "port": 5054},
-}
-
 processes = {}
 
 async def wait_for_ready(port: int, timeout: int = 500):
@@ -30,7 +21,7 @@ async def wait_for_ready(port: int, timeout: int = 500):
                     return True
         except Exception:
             pass
-        if (i + 1) % 20 == 0:
+        if i % 4 == 0:
             print(f"⏳ Waiting for model on port {port} to be ready... ({i + 20}s)", flush=True)
         await asyncio.sleep(5)
     return False
