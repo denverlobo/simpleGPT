@@ -1,3 +1,8 @@
+API_HOST = '0.0.0.0'
+API_PORT = 8000
+LOG_LEVEL = 'info'
+MODEL_LOAD_TIMEOUT = 500
+API_TIMEOUT = 800
 MODEL1_MODEL_PATH = 'model1/model.gguf'
 MODEL2_MODEL_PATH = 'model2/model.gguf'
 MODEL3_MODEL_PATH = 'model3/model.gguf'
@@ -12,8 +17,8 @@ CPU_CORES = 4  # Number of CPU cores to use
 REPEAT_PENALTY = 1.2  # Penalty for repeated tokens
 
 MODELS = {
-    "model1": {"path": MODEL1_MODEL_PATH, "port": 5051},
-    "model2": {"path": MODEL2_MODEL_PATH, "port": 5052},
-    "model3": {"path": MODEL3_MODEL_PATH, "port": 5053},
-    "model4": {"path": MODEL4_MODEL_PATH, "port": 5054},
+    "model1": {"path": MODEL1_MODEL_PATH, "port": 8001},
+    "model2": {"path": MODEL2_MODEL_PATH, "port": 8002},
+    "model3": {"path": MODEL3_MODEL_PATH, "port": 8003},
+    "model4": {"path": MODEL4_MODEL_PATH, "port": 8004},
 }

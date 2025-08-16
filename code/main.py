@@ -10,7 +10,7 @@ import uvicorn
 
 processes = {}
 
-async def wait_for_ready(port: int, timeout: int = 500):
+async def wait_for_ready(port: int, timeout: int = MODEL_LOAD_TIMEOUT):
     url = f"http://127.0.0.1:{port}/health"
     for i in range(timeout):
         try:
@@ -64,7 +64,7 @@ async def invoke(request: Request):
 
     port = MODELS[model]["port"]
     try:
-        async with httpx.AsyncClient(timeout=800.0) as client:
+        async with httpx.AsyncClient(timeout=API_TIMEOUT) as client:
             response = await client.post(f"http://127.0.0.1:{port}/invoke", json={"prompt": prompt})
             return response.json()
     except httpx.ReadTimeout:
@@ -87,5 +87,5 @@ async def health():
     return results
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=5002, reload=False, log_level="debug")
+    uvicorn.run("main:app", host=API_HOST, port=API_PORT, reload=False, log_level=LOG_LEVEL)
 
