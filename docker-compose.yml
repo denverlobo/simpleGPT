@@ -1,0 +1,40 @@
+services:
+  gpt-api:
+    image: gpt-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gpt-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - model1:/app/model1
+      - model2:/app/model2
+      - model3:/app/model3
+      - model4:/app/model4
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      - NAME=simpleGPT
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    privileged: true
+    networks:
+      - host-access
+networks:
+  host-access:
+    driver: bridge
+volumes:
+  model1:
+    external: true
+  model2:
+    external: true
+  model3:
+    external: true
+  model4:
+    external: true

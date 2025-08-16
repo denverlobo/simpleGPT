@@ -1,0 +1,12 @@
+MODEL1_MODEL_PATH = 'model1/model.gguf'
+MODEL2_MODEL_PATH = 'model2/model.gguf'
+MODEL3_MODEL_PATH = 'model3/model.gguf'
+MODEL4_MODEL_PATH = 'model4/model.gguf'
+MAX_NEW_TOKENS = 1500
+TEMPERATURE = 0.7
+TOP_P = 0.95
+N_CTX = 6192  # Context length for the model
+N_GPU_LAYERS = 32  # Set to the number of GPU layers to use
+K_RETRIEVE = 3  # Number of documents to retrieve for context
+CPU_CORES = 4  # Number of CPU cores to use
+REPEAT_PENALTY = 1.2  # Penalty for repeated tokens
