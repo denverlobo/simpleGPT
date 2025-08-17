@@ -21,8 +21,8 @@ async def wait_for_ready(port: int, timeout: int = MODEL_LOAD_TIMEOUT):
                     return True
         except Exception:
             pass
-        if i % 4 == 0:
-            print(f"⏳ Waiting for model on port {port} to be ready... ({i + 20}s)", flush=True)
+        if (i+1) % 4 == 0:
+            print(f"⏳ Waiting for model on port {port} to be ready... ({(i+1)*5}s)", flush=True) # Prints every 20secs
         await asyncio.sleep(5)
     return False
 
